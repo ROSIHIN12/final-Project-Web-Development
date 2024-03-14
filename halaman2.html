@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edspert</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    
+    h1 {
+      color: #510099;
+      font: sans-serif;
+    }
+
+    .new-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #28a745;
+      color: #fff;
+      padding: 2px 5px;
+      font-size: 8px;
+      border-radius: 3px;
+      z-index: 1;
+    }
+
+    .footer {
+      background-color: white;
+      padding: 20px 0;
+    }
+
+    .list-group-item {
+      border-bottom: none;
+    }
+
+    .btn-outline-purple {
+      color: #7e7e7e;
+      font-weight: bold;
+      border-color: none; /* Warna border */
+    }
+
+    .btn-outline-purple:hover {
+      background-color: #941fff; /* Warna latar belakang saat dihover */
+      color: white; /* Warna teks saat dihover */
+    }
+
+    .social-icons a i {
+      color: #888; /* Warna abu-abu */
+      font-size: 24px; /* Ukuran ikon */
+    }
+
+
+    /* Media query untuk layar kecil */
+    @media (max-width: 576px) {
+      .btn-outline-purple {
+        width: 100%; /* Lebar 100% agar tombol menempati seluruh lebar layar */
+        margin-bottom: 10px; /* Jarak antar tombol */
+      }
+
+
+    }
+
+
+    @media (max-width: 768px) {
+      .footer .row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer .col-md-6 {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      #metrics .container .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      #metrics .container .row .col-md-6 {
+        width: 100%;
+
+      }
+
+      #metrics .container .row .col-md-4 {
+        width: 100%;
+      }
+
+      .d-flex.justify-content-center.justify-content-md-end {
+        flex-direction: flex;
+        align-items: center;
+      }
+
+      .btn-secondary {
+        margin-bottom: 10px; /* Jarak antara tombol */
+        margin-right: 10px;
+      }
+
+      .d-flex.align-items-center,
+      .d-flex.justify-content-end {
+        justify-content: center !important;
+      }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+      
+    }
+
+    @media (max-width: 576px) {
+      .list-unstyled li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      
+      .col-md-2.text-left {
+      text-align: center;
+    }
+
+    
+    
+  </style>
+
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Logo" width="120" height="35" class="d-inline-block align-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" style="font-weight:bold;">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" style="margin-right: 10px;">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown" style="margin-right: 10px;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProduct" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Product
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownProduct">
+              <li><a class="dropdown-item" href="#">Product 1</a></li>
+              <li><a class="dropdown-item" href="#">Product 2</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">All Products</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" style="margin-right: 10px;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownResources" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Resources
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownResources">
+              <li><a class="dropdown-item" href="#">Resource 1</a></li>
+              <li><a class="dropdown-item" href="#">Resource 2</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">All Resources</a></li>
+            </ul>
+          </li>
+          <li class="nav-item" style="margin-right: 10px;">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <button class="btn btn-outline-purple me-2" type="button">Log In</button>
+          <button class="btn btn-purple" type="button" style="background-color: #941fff; color: white; font-weight: bold;">Sign up</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+ <!-- Metrics Section -->
+  <section id="metrics" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="detailkursus.jpeg" class="img-fluid" alt="Gambar">
+        </div>
+        <div class="col-md-4">
+          <p style="color: #510099; font-weight: bold;">Intensive Bootcamp</p>
+          <h1 style="color: black;">Web Development Boocamp</h1>
+          <br>
+          <div class="row ">
+            <div class="col-md-6">
+              <h1>400+</h1>
+              <p>Fortopolio Siswa</p>
+            </div>
+            <div class="col-md-6">
+              <h1>80%</h1>
+              <p>Alumni diterima kerja</p>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+              <h1>10k</h1>
+              <p>Anggota Komunitas</p>
+            </div>
+            <div class="col-md-6">
+              <h1>2000+</h1>
+              <p>Testimoni</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-5 ">
+  <div class="container">
+    <h2 class="text-center">Mentor</h2>
+    <p class="lead text-center">Dipandu Oleh Mentor Terbaik Kami</p>
+
+      <div class="row mt-5 ">
+        <div class="col-lg-3 col-md-6 mb-4 ">
+          <div class="card d-flex align-items-center justify-content-center">
+            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-top: 20px;background: #C7B9DA;">
+              <img src="mentor1.png" class="card-img-top" alt="Team Member" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="card-body text-center bg-light">
+              <h5 class="card-title">Agnes Amanta</h5>
+              <p class="card-text" style="color: #510099; font-size: 18px;">Founder & CEO</p>
+              <p>Former co-founder of Opendoor Early staff at Spotify and Clearbit</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card d-flex align-items-center justify-content-center">
+            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-top: 20px;background: #AA9C75;">
+              <img src="mentor2.png" class="card-img-top" alt="Team Member" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="card-body text-center bg-light">
+              <h5 class="card-title">Kajen Permadi</h5>
+              <p class="card-text" style="color: #510099; font-size: 18px;">Engineering Manager</p>
+              <p>Lead Engineering teams at Figma, Pitch, and Protocol Labs</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card d-flex align-items-center justify-content-center">
+            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-top: 20px;background: #D4B5AD;">
+              <img src="mentor3.png" class="card-img-top" alt="Team Member" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="card-body text-center bg-light">
+              <h5 class="card-title">Natsir Naradi</h5>
+              <p class="card-text" style="color: #510099; font-size: 18px;">Product Manager</p>
+              <p style="font-size: 17px;">Former PM for Linear, Lambda School, and On Deck</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card d-flex align-items-center justify-content-center">
+            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-top: 20px;background: #BEA887;">
+              <img src="mentor4.png" class="card-img-top" alt="Team Member" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="card-body text-center bg-light">
+              <h5 class="card-title">Rahimah Gilda</h5>
+              <p class="card-text" style="color: #510099; font-size: 18px;">Fronted Developer</p>
+              <p style="font-size: 17px;">Former fronted dev for Linear, Coinbase, and Postscript</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card d-flex align-items-center justify-content-center">
+            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-top: 20px;background: #A2A8CD;">
+              <img src="mentor5.png" class="card-img-top" alt="Team Member" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="card-body text-center bg-light">
+              <h5 class="card-title">Suartini Novi</h5>
+              <p class="card-text" style="color: #510099; font-size: 18px;">Backend Developer</p>
+              <p>Lead backend dev at Clearbit. Former Clearbit and Loom<br>.</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card d-flex align-items-center justify-content-center">
+            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-top: 20px; background: #D1BAA9;">
+              <img src="mentor6.png" class="card-img-top" alt="Team Member" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="card-body text-center bg-light">
+              <h5 class="card-title">Hannah Airlangga</h5>
+              <p class="card-text" style="color: #510099; font-size: 18px;">Product Designer</p>
+              <p>Founding design team at Figma. Former Pleo, Stripe, and Tile.</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card d-flex align-items-center justify-content-center">
+            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-top: 20px; background: #D1DFC3;">
+              <img src="mentor7.png" class="card-img-top" alt="Team Member" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="card-body text-center bg-light">
+              <h5 class="card-title">Firman Kurniawan</h5>
+              <p class="card-text" style="color: #510099; font-size: 18px;">UX Researcher</p>
+              <p style="font-size: 17px;">Lead user research for Slack. Contractor for Netflix and Udacity.</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card d-flex align-items-center justify-content-center">
+            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-top: 20px; background: #CFC3A7;">
+              <img src="mentor8.png" class="card-img-top" alt="Team Member" style="object-fit: cover; width: 100%; height: 100%;">
+            </div>
+            <div class="card-body text-center bg-light">
+              <h5 class="card-title">Mario Agustinus</h5>
+              <p class="card-text" style="color: #510099; font-size: 18px;">Customer Success</p>
+              <p style="font-size: 17px;">Lead CX at Wealthsimple. Former PagerDuty and Sqreen.</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+  <section id="features" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Features Section</h2>
+      <p class="lead text-center">This is the Features section of the website.</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="container" style="padding: 10px; margin-bottom: 20px; text-align: center; ">
+           <i class="bi bi-people" style="color : #7F56D9;background: #F4EBFF; font-size: 2rem; width: 3rem; height: 3rem; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i>
+            <p style="font-weight: bold;">Komunitas</p>
+            <p>Kenali banyak anggota dari komunitas alumni Edspert dari berbagai macam bidang studi.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container" style=" padding: 10px; margin-bottom: 20px;text-align: center;">
+            <i class="bi bi-suit-heart" style=" color : #7F56D9; background: #F4EBFF; font-size: 2rem; width: 3rem; height: 3rem; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i></i>
+            <p style="font-weight: bold;">1-on-1 Session</p>
+            <p>Kenali banyak anggota dari komunitas alumni Edspert dari berbagai macam bidang studi.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container" style=" padding: 10px; margin-bottom: 20px;text-align: center;">
+            <img src="trending-up.png" alt="Graph Up Arrow" style="color : #7F56D9; background: #F4EBFF; font-size: 3.3rem; width: 3rem; height: 3rem; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%; overflow: hidden; padding: 0;">
+            <p style="font-weight: bold;">Active Learning</p>
+            <p>Kenali banyak anggota dari komunitas alumni Edspert dari berbagai macam bidang studi.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="container" style=" padding: 10px; margin-bottom: 20px; text-align: center; ">
+           <i class="bi bi-emoji-smile" style="color : #7F56D9;background: #F4EBFF; font-size: 2rem; width: 3rem; height: 3rem; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i>
+            <p style="font-weight: bold;">Happy Atmosphere</p>
+            <p>Kenali banyak anggota dari komunitas alumni Edspert dari berbagai macam bidang studi.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container" style=" padding: 10px; margin-bottom: 20px;text-align: center;">
+            <i class="bi bi-flag" style=" color : #7F56D9; background: #F4EBFF; font-size: 2rem; width: 3rem; height: 3rem; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i></i>
+            <p style="font-weight: bold;">Tugas</p>
+            <p>Kenali banyak anggota dari komunitas alumni Edspert dari berbagai macam bidang studi.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container" style=" padding: 10px; margin-bottom: 20px;text-align: center;">
+            <i class="bi bi-lightning-charge" style=" color : #7F56D9; background: #F4EBFF; font-size: 2rem; width: 3rem; height: 3rem; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i></i>
+            <p style="font-weight: bold;">Intensive Bootcamp</p>
+            <p>Kenali banyak anggota dari komunitas alumni Edspert dari berbagai macam bidang studi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="careers" class="py-5">
+    <div class="container">
+      <div class="col-8 mx-auto">
+          <p style="font-weight: bold;">Materi</p>
+          <div class="container" style="border: 1px solid #ccc; border-radius: 10px; padding: 10px; margin-bottom: 20px; text-align: left;">
+              <p style="font-weight: bold;">Introduction to Web Development</p>
+              <p>Belajar logika dan hal hal dasar untuk menyipkan kamu belajar pengembangan web</p>
+          </div>
+          <div class="container" style="border: 1px solid #ccc; border-radius: 10px; padding: 10px; margin-bottom: 20px; text-align: left;">
+              <p style="font-weight: bold;">Introduction to Web Development</p>
+              <p>Belajar logika dan hal hal dasar untuk menyipkan kamu belajar pengembangan web</p>
+          </div>
+          <div class="container" style="border: 1px solid #ccc; border-radius: 10px; padding: 10px; margin-bottom: 20px; text-align: left;">
+              <p style="font-weight: bold;">Introduction to Web Development</p>
+              <p>Belajar logika dan hal hal dasar untuk menyipkan kamu belajar pengembangan web</p>
+          </div>
+          <div class="container" style="border: 1px solid #ccc; border-radius: 10px; padding: 10px; margin-bottom: 20px; text-align: left;">
+              <p style="font-weight: bold;">Introduction to Web Development</p>
+              <p>Belajar logika dan hal hal dasar untuk menyipkan kamu belajar pengembangan web</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-center text-md-left mb-3 mb-md-0">
+        <h3 style="font-weight: bold;">Daftar Kelas Sekarang</h3>
+        <p>Join over 10,000+ students already growing with Edspert</p>
+      </div>
+      <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
+        <div class="d-flex justify-content-center justify-content-md-end ">
+          <button class="btn btn-secondary mr-md-2 mb-2 mb-md-0" style="font-weight: bold; background-color:#FFFFFF; color:#344054; border-color : #D0D5DD;">Hubungi CS</button>
+          <button class="btn btn-secondary" style=" font-weight: bold;  background-color:#7F56D9; color:#FFFFFF; border-color : #7F56D9;">Daftar Sekarang</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="p-3">
+          <img src="logo.png" alt="Logo" width="120">
+          <p><br>Join over 10,000+ students already growing with Edspert</p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="p-3">
+          <h5>Product</h5>
+          <ul class="list-unstyled">
+            <li>Overview </li>
+            <li>Features</li>
+            <li>Solution <span class="new-badge" style="position: relative;">New</span></li>
+            <li>Tutorials</li>
+            <li>Pricing</li>
+            <li>Releases</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="p-3">
+          <h5>Company</h5>
+          <ul class="list-unstyled">
+            <li>About Us</li>
+            <li>Careers</li>
+            <li>Press</li>
+            <li>News</li>
+            <li>Media Kit</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="p-3">
+          <h5>Resources</h5>
+            <ul class="list-unstyled">
+              <li>Blog</li>
+              <li>Newsletter</li>
+              <li>Events</li>
+              <li>Help Centre</li>
+              <li>Tutorials</li>
+              <li>Support</li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="p-3">
+          <h5>Social</h5>
+          <ul class="list-unstyled">
+            <li>Teitter</li>
+            <li>LinkedIn</li>
+            <li>Facebook</li>
+            <li>GitHub</li>
+            <li>AnggelList</li>
+            <li>Dribble</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="p-3">
+          <h5>Legal</h5>
+          <ul class="list-unstyled">
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Cookis</li>
+            <li>Licenses</li>
+            <li>Settings</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="border-top: 1px solid #ddd; padding-top: 30px;">
+    <div class="row">
+    <div class="col-md-6 d-flex align-items-center"> 
+      <p>&copy; 2024 Untitled UI. All Right Reserved.</p>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end"> 
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><img src="2jari.png" alt="social-media" style="width:30px; margin-bottom:10px"></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+      </div>
+    </div>
+  </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
